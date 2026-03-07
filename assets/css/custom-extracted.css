@@ -20,11 +20,44 @@ body {
     font-size: 18px;
 }
 
+/* ==================== Marquesina Promocional ==================== */
+.marquesina {
+    background: #000000;
+    width: 100%;
+    overflow: hidden;
+    padding: 12px 0;
+    z-index: 999;
+}
+
+.marquesina-content {
+    display: flex;
+    animation: scroll-left 30s linear infinite;
+    white-space: nowrap;
+}
+
+.marquesina-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    padding-right: 40px;
+    display: inline-block;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 /* ==================== Header ==================== */
 header {
     width: 100%;
     position: sticky;
-    top: 0;
+    top: 44px;
     z-index: 100;
 }
 
