@@ -32,11 +32,56 @@ function startTypewriter() {
                 button.style.opacity = '1';
                 button.style.transform = 'translateY(0)';
             }, 400);
+            
+            // Start hero slider after animation completes
+            setTimeout(function() {
+                startHeroSlider();
+            }, 1200);
         }
     }
     
     // Start typing after a small delay
     setTimeout(typeCharacter, 300);
+}
+
+// Hero Slider Functionality
+let sliderIndex = 1;
+let sliderInterval;
+
+function startHeroSlider() {
+    showSlide(sliderIndex);
+    autoSlide();
+}
+
+function currentSlide(n) {
+    clearInterval(sliderInterval);
+    showSlide(sliderIndex = n);
+    autoSlide();
+}
+
+function showSlide(n) {
+    let slides = document.querySelectorAll('.slider-slide');
+    let dots = document.querySelectorAll('.dot');
+    
+    if (n > slides.length) {
+        sliderIndex = 1;
+    }
+    if (n < 1) {
+        sliderIndex = slides.length;
+    }
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    slides[sliderIndex - 1].classList.add('active');
+    dots[sliderIndex - 1].classList.add('active');
+}
+
+function autoSlide() {
+    sliderInterval = setInterval(function() {
+        sliderIndex++;
+        showSlide(sliderIndex);
+    }, 4000); // Cambiar imagen cada 4 segundos
 }
 
 // Initialize typewriter when DOM is ready

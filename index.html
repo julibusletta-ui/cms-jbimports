@@ -59,8 +59,8 @@
                         <a href="#">Consolas y videojuegos</a>
                     </div>
                 </div>
-                <a href="#services">OFERTAS!</a>
-                <a href="#blog">Quienes somos</a>
+                <a href="#services">Quienes somos</a>
+                <a href="#blog" class="ofertas-btn"><span class="ofertas-fire">🔥</span>OFERTAS!</a>
             </nav>
         </div>
     </header>
@@ -69,8 +69,38 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1 id="typewriter-text" class="typewriter"></h1>
-            <p id="hero-paragraph" style="opacity: 0; transform: translateY            const text = "JBimports. Tecnologia al alcance de todos.;(40px);"">Designing brands people remember</p>
+            <p id="hero-paragraph" style="opacity: 0; transform: translateY(40px);">Designing brands people remember</p>
             <a href="#contact" id="hero-button" class="cta-button" style="opacity: 0; transform: translateY(40px);">Let's talk</a>
+        </div>
+        
+        <!-- Hero Slider -->
+        <div class="hero-slider" id="heroSlider">
+            <div class="slider-container">
+                <div class="slider-slide fade">
+                    <img src="./assets/img/productos-apple.webp" alt="Productos Apple">
+                </div>
+                <div class="slider-slide fade">
+                    <img src="./assets/img/MacBookAirM410.webp" alt="MacBook Air">
+                </div>
+                <div class="slider-slide fade">
+                    <img src="./assets/img/JBLBoombox3Lifestyle01904x560px-(5014).webp" alt="JBL Boombox">
+                </div>
+                <div class="slider-slide fade">
+                    <img src="./assets/img/xiaomi-14t.webp" alt="Xiaomi 14T">
+                </div>
+                <div class="slider-slide fade">
+                    <img src="./assets/img/GTLZI55ZGVE3VCFVPSIBCPXTRE.webp" alt="Productos">
+                </div>
+            </div>
+            
+            <!-- Slider Dots -->
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+            </div>
         </div>
     </section>
 
