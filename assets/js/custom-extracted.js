@@ -4,6 +4,8 @@ function startTypewriter() {
     const typewriterElement = document.getElementById('typewriter-text');
     const paragraph = document.getElementById('hero-paragraph');
     const button = document.getElementById('hero-button');
+    const heroContent = document.querySelector('.hero-content');
+    const heroSlider = document.getElementById('heroSlider');
     
     let index = 0;
     const speed = 60; // milliseconds per character
@@ -33,10 +35,16 @@ function startTypewriter() {
                 button.style.transform = 'translateY(0)';
             }, 400);
             
-            // Start hero slider after animation completes
+            // Fade out hero-content and fade in slider
             setTimeout(function() {
-                startHeroSlider();
-            }, 1200);
+                heroContent.classList.add('fade-out');
+                heroSlider.classList.add('active');
+                
+                // Start slider after fade in completes
+                setTimeout(function() {
+                    startHeroSlider();
+                }, 800);
+            }, 2000);
         }
     }
     
