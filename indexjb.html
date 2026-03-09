@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBimports - Tecnología en tus manos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize.css/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+    <!-- AOS - Animate On Scroll Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.min.css" />
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="./assets/js/slick.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/custom-extracted.css">
+</head>
+
+<body>
+    <!-- Marquesina Promocional -->
+    <!-- <div class="marquesina">
+        <div class="marquesina-content">
+            <span class="marquesina-text">✨ CUOTAS SIN INTERÉS EN TODAS TUS COMPRAS • ENVÍOS GRATIS A TODO EL PAÍS EN COMPRAS MAYORES A $200.000 • ✨ CUOTAS SIN INTERÉS EN TODAS TUS COMPRAS • ENVÍOS GRATIS A TODO EL PAÍS EN COMPRAS MAYORES A $200.000 • </span>
+        </div>
+    </div> -->
+    
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="logo logo-header">
+                <img src="./assets/img/logotest8.png" alt="Logo Test" class="logo-img">
+            </div>
+            <form class="search-bar" action="#" method="get">
+                <input type="text" placeholder="Fijate en JBimports" name="q">
+                <button type="submit" aria-label="Buscar">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </form>
+            <div class="cart-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61l1.38-7.39H6"></path></svg>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+        <div class="header-nav">
+            <nav class="nav-primary">
+                <a href="#home">CELULARES</a>
+                <a href="#home">AURICULARES</a>
+                <a href="#home">PARLANTES</a>
+                <div class="dropdown">
+                    <button class="dropbtn">PRODUCTOS <span class="arrow">▼</span></button>
+                    <div class="dropdown-content">
+                        <div class="dropdown-submenu">
+                            <button class="submenu-btn">Apple <span class="arrow">▶</span></button>
+                            <div class="submenu-content">
+                                <a href="#">Iphone</a>
+                                <a href="#">Macbook</a>
+                                <a href="#">Watch</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-submenu">
+                            <button class="submenu-btn">Celulares <span class="arrow">▶</span></button>
+                            <div class="submenu-content">
+                                <a href="#">Samsung</a>
+                                <a href="#">Motorola</a>
+                                <a href="#">Xiaomi</a>
+                                <a href="#">Realme</a>
+                            </div>
+                        </div>
+                        <a href="#">Smart Home</a>
+                        <a href="#">Parlantes</a>
+                        <a href="#">Auriculares</a>
+                        <a href="#">Consolas y videojuegos</a>
+                    </div>
+                </div>
+                <a href="#services">NOTEBOOKS</a>
+                <div><button class="comic-button">OFERTAS!🔥</button>   
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 id="typewriter-text" class="typewriter"></h1>
+            <p id="hero-paragraph" class="hero-hidden">Los mejores precios del mercado</p>
+            <a href="#contact" id="hero-button" class="cta-button hero-hidden">Acceder al shop!</a>
+        </div>
+        
+        <!-- Hero Slider -->
+        <div class="hero-slider" id="heroSlider">
+            <div class="slider-container">
+                <div class="slider-slide fade">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&h=600&fit=crop&q=90" alt="iPhone Premium">
+                    <div class="slider-overlay">
+                        <div class="overlay-content">
+                            <h2>Los mejores iPhones</h2>
+                            <p>Última generación al mejor precio</p>
+                            <div class="promo-badge">Hasta 6 cuotas sin interés</div>
+                            <div class="payment-methods">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_logo.svg/1200px-Mastercard_logo.svg.png" alt="Mastercard">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mercado_Pago_logo_%28current%29.svg/1200px-Mercado_Pago_logo_%28current%29.svg.png" alt="Mercado Pago">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-slide fade">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&h=600&fit=crop&q=90" alt="MacBook Pro">
+                    <div class="slider-overlay">
+                        <div class="overlay-content">
+                            <h2>MacBook Pro para profesionales</h2>
+                            <p>Potencia y rendimiento extremo</p>
+                            <div class="promo-badge">Envío gratis en todo el país</div>
+                            <div class="payment-methods">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_logo.svg/1200px-Mastercard_logo.svg.png" alt="Mastercard">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mercado_Pago_logo_%28current%29.svg/1200px-Mercado_Pago_logo_%28current%29.svg.png" alt="Mercado Pago">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-slide fade">
+                    <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=1200&h=600&fit=crop&q=90" alt="Auriculares Premium">
+                    <div class="slider-overlay">
+                        <div class="overlay-content">
+                            <h2>Los mejores auriculares los encontrás acá</h2>
+                            <p>Sonido premium a tu alcance</p>
+                            <div class="promo-badge">Hasta 6 cuotas sin interés</div>
+                            <div class="payment-methods">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_logo.svg/1200px-Mastercard_logo.svg.png" alt="Mastercard">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mercado_Pago_logo_%28current%29.svg/1200px-Mercado_Pago_logo_%28current%29.svg.png" alt="Mercado Pago">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-slide fade">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&h=600&fit=crop&q=90" alt="Smartwatch">
+                    <div class="slider-overlay">
+                        <div class="overlay-content">
+                            <h2>Smartwatch de última generación</h2>
+                            <p>Conectividad y estilo combinados</p>
+                            <div class="promo-badge">Compra segura garantizada</div>
+                            <div class="payment-methods">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_logo.svg/1200px-Mastercard_logo.svg.png" alt="Mastercard">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mercado_Pago_logo_%28current%29.svg/1200px-Mercado_Pago_logo_%28current%29.svg.png" alt="Mercado Pago">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-slide fade">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=1200&h=600&fit=crop&q=90" alt="Tecnología">
+                    <div class="slider-overlay">
+                        <div class="overlay-content">
+                            <h2>Toda la tecnología que necesitas</h2>
+                            <p>Productos originales con garantía oficial</p>
+                            <div class="promo-badge">Hasta 6 cuotas sin interés</div>
+                            <div class="payment-methods">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_logo.svg/1200px-Mastercard_logo.svg.png" alt="Mastercard">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mercado_Pago_logo_%28current%29.svg/1200px-Mercado_Pago_logo_%28current%29.svg.png" alt="Mercado Pago">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slider Dots -->
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <div class="benefit-wrapper">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="9" x2="9" y2="15"></line>
+                            <line x1="15" y1="9" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Hasta 6 cuotas sin interés</h3>
+                        <p>abonando desde <strong>MODO</strong> con <strong>ICBC</strong>, <strong>Supervielle</strong> y más</p>
+                        <div class="payment-brands">
+                            <span class="brand-label">ICBC</span>
+                            <span class="brand-label">MODO</span>
+                            <span class="brand-label">Supervielle</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="benefit-divider-wrapper">
+                <div class="benefit-divider"></div>
+            </div>
+            <div class="benefit-wrapper">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <path d="M5 12a7 7 0 1 0 14 0 7 7 0 1 0-14 0"></path>
+                            <path d="M12 5v7l4.2 2.5"></path>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3><strong>Envíos rápidos</strong> a todo el país.</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="benefit-divider-wrapper">
+                <div class="benefit-divider"></div>
+            </div>
+            <div class="benefit-wrapper">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Garantía oficial</h3>
+                        <p>de hasta 36 meses en todos los productos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="work">
+        <div class="container-fluid categories-container">
+            <div class="container">
+                <div class="categories-header animate-on-scroll" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="categories-title-wrapper">
+                        <h2>Explorá nuestras <span class="highlight">categorías</span></h2>
+                    </div>
+                    <div class="categories-arrows">
+                        <button class="arrow-btn arrow-left" aria-label="Previous categories" onclick="scrollCarousel('left')">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="arrow-btn arrow-right" aria-label="Next categories" onclick="scrollCarousel('right')">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="categories-grid">
+                    <!-- Main Category -->
+                    <div class="category-card category-main animate-on-scroll" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Principal_20_6f1017ee-45aa-43b8-a9b1-2e5943bb0101.jpg');">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-text">
+                            <p>PC de Escritorio</p>
+                        </div>
+                    </div>
+
+                    <!-- Secondary Categories Carousel -->
+                    <div class="categories-carousel-wrapper">
+                        <div class="categories-carousel" id="categoriesCarousel">
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_8_7bb94f0e-d382-484b-b051-729e5b43d592.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Placas de Video</p>
+                                </div>
+                            </div>
+
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_14_810a81ed-1cf1-4918-9614-65d749e49b13.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Monitores</p>
+                                </div>
+                            </div>
+
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_11_71faed0f-83e6-436d-9854-70d0ab4771c9.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Notebooks</p>
+                                </div>
+                            </div>
+
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_5_ac448f96-41c9-4320-a874-a4264f4e95cd.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Memorias RAM</p>
+                                </div>
+                            </div>
+
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_6_9e4e3baa-a228-4245-8578-e1ffba7fc38c.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Mothers</p>
+                                </div>
+                            </div>
+
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_18_99233303-1c1a-4e6b-8c6a-0c3a586ca7f2.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Gabinetes</p>
+                                </div>
+                            </div>
+
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_9_5c571df2-0c28-435c-9eee-8e086f7eeceb.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Fuentes</p>
+                                </div>
+                            </div>
+
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_1_424beac4-2f69-47f2-ae9a-eae752fef9f3.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Periféricos</p>
+                                </div>
+                            </div>
+
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_3_796a727e-6684-4cd8-a9ac-16e59f70efff.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Almacenamiento</p>
+                                </div>
+                            </div>
+
+                            <div class="category-card category-secondary animate-on-scroll" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                                <div class="category-image category-image-main" style="background-image: url('https://imagenes.compragamer.com/home_carrusel_agrupadores/Secundaria_19_f1f55f63-89d7-441b-95fa-c03064e5e9cf.jpg');">
+                                    <div class="category-overlay"></div>
+                                </div>
+                                <div class="category-text">
+                                    <p>Impresoras e Insumos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="carrusel section pt-0 pb-0">
+        <div class="carousel-header">
+            <div class="carousel-title">
+                <h3>#BOMBAS EN JB IMPORTS</h3>
+            </div>
+            <div class="carousel-progress">
+                <div class="progress-bar btn-blue" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%; background-color:#414141;"></div>
+            </div>
+        </div>
+        
+        <!-- Carousel Slick -->
+        <div id="products-carousel" class="products-carousel">
+            <div class="carousel-product">
+                <div class="product-card">
+                    <span class="discount-badge">15% OFF</span>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop" alt="Auriculares Gaming">
+                    </div>
+                    <div class="product-info">
+                        <h5>Auriculares Gaming RGB</h5>
+                        <p class="product-brand">SonicPro</p>
+                        <p class="product-sku">Art: 51307</p>
+                        <div class="product-price">
+                            <span class="price">$344.279</span>
+                        </div>
+                        <button class="btn-add-cart">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-product">
+                <div class="product-card">
+                    <span class="discount-badge">12% OFF</span>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=300&h=300&fit=crop" alt="Monitor Gaming">
+                    </div>
+                    <div class="product-info">
+                        <h5>Monitor Gaming 45" Curvo</h5>
+                        <p class="product-brand">LG UltraGear</p>
+                        <p class="product-sku">Art: 59161</p>
+                        <div class="product-price">
+                            <span class="price">$2.466.729</span>
+                        </div>
+                        <button class="btn-add-cart">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-product">
+                <div class="product-card">
+                    <span class="discount-badge">18% OFF</span>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1587829191301-c1e3cf3c6699?w=300&h=300&fit=crop" alt="Teclado Mecánico">
+                    </div>
+                    <div class="product-info">
+                        <h5>Teclado Mecánico RGB</h5>
+                        <p class="product-brand">MechForce</p>
+                        <p class="product-sku">Art: 48119</p>
+                        <div class="product-price">
+                            <span class="price">$423.189</span>
+                        </div>
+                        <button class="btn-add-cart">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-product">
+                <div class="product-card">
+                    <span class="discount-badge">20% OFF</span>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=300&h=300&fit=crop" alt="Mouse Inalámbrico">
+                    </div>
+                    <div class="product-info">
+                        <h5>Mouse Gaming Inalámbrico</h5>
+                        <p class="product-brand">LogiSpeed</p>
+                        <p class="product-sku">Art: 48117</p>
+                        <div class="product-price">
+                            <span class="price">$166.969</span>
+                        </div>
+                        <button class="btn-add-cart">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-product">
+                <div class="product-card">
+                    <span class="discount-badge">10% OFF</span>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop" alt="SSD Gaming">
+                    </div>
+                    <div class="product-info">
+                        <h5>SSD NVMe 1TB Gaming</h5>
+                        <p class="product-brand">SpeedTech</p>
+                        <p class="product-sku">Art: 62018</p>
+                        <div class="product-price">
+                            <span class="price">$328.639</span>
+                        </div>
+                        <button class="btn-add-cart">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-product">
+                <div class="product-card">
+                    <span class="discount-badge">25% OFF</span>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1591290621748-78f9f1fae767?w=300&h=300&fit=crop" alt="Placa de Video">
+                    </div>
+                    <div class="product-info">
+                        <h5>Placa de Video RTX 5070</h5>
+                        <p class="product-brand">NVIDIA MSI</p>
+                        <p class="product-sku">Art: 39968</p>
+                        <div class="product-price">
+                            <span class="price">$1.220.999</span>
+                        </div>
+                        <button class="btn-add-cart">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logos Marquee -->
+    <section class="logos-marquee">
+        <div class="logos-container">
+            <div class="logos-track">
+                <!-- First set of logos -->
+                <div class="logo-item">
+                    <img src="assets/img/apple-icon.png" alt="Visa">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/jbl-2-logo-png-transparent.webp" alt="Mastercard">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/5699546321769097351706x1280.webp" alt="American Express">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/images.webp" alt="PayPal">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/logorealme.png" alt="Stripe">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/66964.webp" alt="Apple Pay">
+                </div>
+                <!-- Duplicate set for seamless loop -->
+                <div class="logo-item">
+                    <img src="assets/img/logoapple.png" alt="Visa">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/jbl-2-logo-png-transparent.webp" alt="Mastercard">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/5699546321769097351706x1280.webp" alt="American Express">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/images.webp" alt="PayPal">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/Realmelogo.webp" alt="Stripe">
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/66964.webp" alt="Apple Pay">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-black footer-big" style="background:#000!important;">
+        <div class="container">
+            <div class="content" style="text-align: left;">
+                <div class="row">
+                    <!-- Información Útil -->
+                    <div class="col-md-2">
+                        <h5>INFORMACIÓN ÚTIL</h5>
+                        <ul class="links-vertical">
+                            <li>
+                                <a href="#">Preguntas frecuentes</a>
+                            </li>
+                            <li>
+                                <a href="#">Formas de pago</a>
+                            </li>
+                            <li>
+                                <a href="#">Envíos</a>
+                            </li>
+                            <li>
+                                <a href="#">Términos y Condiciones</a>
+                            </li>
+                            <li>
+                                <a href="#">Política de privacidad</a>
+                            </li>
+                            <li>
+                                <a href="#">Defensa al Consumidor</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Acerca de JBimports -->
+                    <div class="col-md-2">
+                        <h5>ACERCA DE JBIMPORTS</h5>
+                        <ul class="links-vertical">
+                            <li>
+                                <a href="#">Quiénes somos</a>
+                            </li>
+                            <li>
+                                <a href="#">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contáctenos -->
+                    <div class="col-md-3 donde-estamos" style="text-transform:uppercase; font-size:12px;">
+                        <h5>CONTÁCTENOS</h5>
+                        <p style="font-size:12px; margin-top:-1px; font-weight:500!important;">
+                            <a style="font-size:12px; line-height: 29px!important;" href="#"><i class="fas fa-comments"></i> Quiero preguntar</a><br>
+                            <a style="font-size:12px;" href="#"><i class="fa fa-phone"></i></a><br>
+                            <span style="opacity: .86; font-size:12px; margin-top:2px;"></span><br>
+                            <a style="font-size:12px;" href="mailto:info@jbimports.com"><i class="fa fa-envelope"></i> contacto@jbimports.com.ar</a><br>
+                            <span style="opacity: .86; font-size:12px;">Lunes a Viernes de 9:00 a 20:00hs. Sábados y domingos de 11:00 a 18:00hs.</span>
+                        </p>
+                    </div>
+
+                    <!-- Redes Sociales -->
+                    <div class="col-md-3 newsletter ml-sm-4">
+                        <h5 class="mb-0">REDES</h5>
+                        <p class="mb-0" style="opacity: .86; text-transform:uppercase; font-size:12px!important;margin-top: 12px;">Seguinos en nuestras Redes Sociales</p>
+                        <style type="text/css">
+                            #socialiconfooter .social-insta:hover{ background-color:#E4405F;}
+                            #socialiconfooter .social-face:hover{  background-color:#1877F2;}
+                            #socialiconfooter .social-youtu:hover{  background-color:#FF0000;}
+                            #socialiconfooter .social-tiktok:hover{  background-color:#000000;}
+                        </style>
+                        <div id="socialiconfooter">
+                            <li style="float:left; list-style:none; margin-right:5px;">
+                                <a href="https://www.instagram.com" target="_blank" class="social-insta btn btn-just-icon btn-round">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li style="float:left; list-style:none; margin-right:5px;">
+                                <a href="https://www.facebook.com" target="_blank" class="social-face btn btn-just-icon btn-round">
+                                    <i class="fa fa-facebook-square"></i>
+                                </a>
+                            </li>
+                            <li style="float:left; list-style:none; margin-right:5px;">
+                                <a href="https://www.youtube.com" target="_blank" class="social-youtu btn btn-just-icon btn-round">
+                                    <i style="font-size:22px;" class="fab fa-youtube"></i>
+                                </a>
+                            </li>
+                            <li style="float:left; list-style:none; margin-right:10px;">
+                                <a href="https://www.tiktok.com" target="_blank" class="social-tiktok btn btn-just-icon btn-round">
+                                    <i style="font-size:22px;" class="fab fa-tiktok"></i>
+                                </a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="opacity: 0.3; margin: 30px 0;">
+
+            <div class="copyright pull-center" style="text-align: center; opacity: 0.8;">
+                Todos los derechos reservados © 2026 JBimports<br>
+            </div>
+        </div>
+    </footer>
+
+    <div style="width: 100%; background: #181818; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 0 16px 0; border-top: 1px solid #333;">
+        <img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" alt="QR AFIP" border="0" style="width: 100%; max-width: 80px !important; height: auto; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-radius: 6px; background: #fff; padding: 6px;">
+        <span style="color: #bbb; font-size: 12px; font-family: 'DM Sans', sans-serif; margin-top: 2px; letter-spacing: 0.5px;">Factura Electrónica AFIP</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.min.js"></script>
+    <script src="./assets/js/custom-extracted.js"></script>
+    </body>
+    <script>
+    // Hamburguesa para mobile
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.getElementById('hamburger-menu');
+        const nav = document.getElementById('main-nav');
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('open');
+                // Accesibilidad
+                hamburger.setAttribute('aria-expanded', nav.classList.contains('open'));
+            });
+            // Cerrar menú al hacer click fuera
+            document.addEventListener('click', function(e) {
+                if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    });
+    </script>
+</body>
+
+</html>

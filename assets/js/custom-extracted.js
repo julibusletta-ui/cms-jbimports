@@ -1,6 +1,117 @@
+// ==================== Mobile Menu Handling ====================
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle dropdown menus on mobile
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const dropbtn = dropdown.querySelector('.dropbtn');
+        const submenuBtns = dropdown.querySelectorAll('.submenu-btn');
+        
+        if (window.innerWidth <= 768) {
+            // Mobile: Click to toggle dropdown
+            if (dropbtn) {
+                dropbtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('open');
+                    
+                    // Close other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('open');
+                        }
+                    });
+                });
+            }
+            
+            // Handle submenus on mobile
+            submenuBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const submenu = btn.closest('.dropdown-submenu');
+                    if (submenu) {
+                        submenu.classList.toggle('open');
+                    }
+                });
+            });
+        }
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('open');
+            });
+        }
+    });
+});
+
+// ==================== Responsive Helper ====================
+function handleResize() {
+    const header = document.querySelector('header');
+    const nav = document.querySelector('.nav-primary');
+    
+    if (window.innerWidth <= 768) {
+        // Mobile mode
+        if (header) header.classList.add('mobile-mode');
+        if (nav) nav.classList.add('mobile-nav');
+    } else {
+        // Desktop mode
+        if (header) header.classList.remove('mobile-mode');
+        if (nav) nav.classList.remove('mobile-nav');
+    }
+}
+
+// Call on resize
+window.addEventListener('resize', handleResize);
+// Call on load
+window.addEventListener('load', handleResize);
+document.addEventListener('DOMContentLoaded', handleResize);
+
+// Carousel Scroll Function
+
+function scrollCarousel(direction) {
+    const carousel = document.getElementById('categoriesCarousel');
+    const scrollAmount = 250; // Ancho aproximado de un item + gap
+    
+    if (direction === 'left') {
+        carousel.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    } else if (direction === 'right') {
+        carousel.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Intersection Observer para animaciones
+document.addEventListener('DOMContentLoaded', function() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observar todos los category cards
+    document.querySelectorAll('.category-card').forEach(card => {
+        observer.observe(card);
+    });
+});
+
 // Typewriter effect with JavaScript
 function startTypewriter() {
-    const text = "JBimports. Tecnologia al alcance de todos.";
+    const text = "J{BLUE}B imports{/BLUE}.<br>Tecnología a un solo CLIC!";
     const typewriterElement = document.getElementById('typewriter-text');
     const paragraph = document.getElementById('hero-paragraph');
     const button = document.getElementById('hero-button');
@@ -14,8 +125,37 @@ function startTypewriter() {
     
     function typeCharacter() {
         if (index < text.length) {
-            typewriterElement.textContent += text.charAt(index);
-            index++;
+            // Detectar <br> tag
+            if (text.substr(index, 4) === '<br>') {
+                typewriterElement.innerHTML += '<br>';
+                index += 4;
+            }
+            // Detectar {BLUE} marker
+            else if (text.substr(index, 6) === '{BLUE}') {
+                typewriterElement.innerHTML += '';
+                index += 6;
+            }
+            // Detectar {/BLUE} marker
+            else if (text.substr(index, 7) === '{/BLUE}') {
+                typewriterElement.innerHTML += '';
+                index += 7;
+            }
+            // Caracteres normales
+            else {
+                // Comprobar si estamos dentro de marcadores azules
+                let beforeText = text.substring(0, index);
+                let blueCount = (beforeText.match(/{BLUE}/g) || []).length;
+                let closeBlueCount = (beforeText.match(/{\/BLUE}/g) || []).length;
+                let inBlue = blueCount > closeBlueCount;
+                
+                if (inBlue) {
+                    // Agregar con span azul
+                    typewriterElement.innerHTML += '<span style="color: #1a3b69;">' + text.charAt(index) + '</span>';
+                } else {
+                    typewriterElement.innerHTML += text.charAt(index);
+                }
+                index++;
+            }
             setTimeout(typeCharacter, speed);
         } else {
             // Remove typing class when done
@@ -44,7 +184,7 @@ function startTypewriter() {
                 setTimeout(function() {
                     startHeroSlider();
                 }, 800);
-            }, 2000);
+            }, 3000);
         }
     }
     
@@ -226,3 +366,191 @@ function removeFromCart(quantity = 1) {
 }
 
 // Ejemplo: para probar, puedes llamar addToCart() en la consola o desde botones futuros
+
+// ==================== Carousel Slick Initialization ====================
+document.addEventListener('DOMContentLoaded', function() {
+    // Cargar Slick JS si no está disponible
+    if (typeof $ === 'undefined') {
+        const slickScript = document.createElement('script');
+        slickScript.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+        document.head.appendChild(slickScript);
+        
+        slickScript.onload = function() {
+            const slickMin = document.createElement('script');
+            slickMin.src = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js';
+            document.head.appendChild(slickMin);
+            
+            slickMin.onload = function() {
+                initializeCarousel();
+            };
+        };
+    } else {
+        // Si jQuery ya está cargado, usar Slick directamente
+        if (typeof $.fn.slick !== 'undefined') {
+            initializeCarousel();
+        } else {
+            const slickMin = document.createElement('script');
+            slickMin.src = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js';
+            document.head.appendChild(slickMin);
+            
+            slickMin.onload = function() {
+                initializeCarousel();
+            };
+        }
+    }
+});
+
+function initializeCarousel() {
+    const carousel = document.getElementById('products-carousel');
+    
+    if (carousel && typeof $ !== 'undefined' && typeof $.fn.slick !== 'undefined') {
+        $(carousel).slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 4000,
+            infinite: true,
+            speed: 500,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        autoplaySpeed: 3000
+                    }
+                }
+            ]
+        });
+        
+        // Agregar controles de navegación personalizados
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'carousel-prev-btn';
+        prevBtn.innerHTML = '<i class="fa fa-chevron-left"></i>';
+        prevBtn.onclick = function() {
+            $(carousel).slick('slickPrev');
+        };
+        
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'carousel-next-btn';
+        nextBtn.innerHTML = '<i class="fa fa-chevron-right"></i>';
+        nextBtn.onclick = function() {
+            $(carousel).slick('slickNext');
+        };
+        
+        carousel.parentElement.insertBefore(prevBtn, carousel);
+        carousel.parentElement.insertBefore(nextBtn, carousel.nextSibling);
+    } else {
+        // Fallback: usar scroll horizontal sin Slick
+        console.log('Slick carousel no disponible, usando scroll horizontal');
+        enableHorizontalScroll(carousel);
+    }
+}
+
+// Fallback: Scroll horizontal suave
+function enableHorizontalScroll(carousel) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    carousel.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1;
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    // Botones de navegación para fallback
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'carousel-prev-btn';
+    prevBtn.innerHTML = '<i class="fa fa-chevron-left"></i>';
+    prevBtn.onclick = function() {
+        carousel.scrollBy({ left: -250, behavior: 'smooth' });
+    };
+    
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'carousel-next-btn';
+    nextBtn.innerHTML = '<i class="fa fa-chevron-right"></i>';
+    nextBtn.onclick = function() {
+        carousel.scrollBy({ left: 250, behavior: 'smooth' });
+    };
+    
+    carousel.parentElement.insertBefore(prevBtn, carousel);
+    carousel.parentElement.insertBefore(nextBtn, carousel.nextSibling);
+}
+
+// Agregar estilos para botones de navegación
+document.addEventListener('DOMContentLoaded', function() {
+    const style = document.createElement('style');
+    style.textContent = `
+        .carousel-prev-btn, .carousel-next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+        
+        .carousel-prev-btn:hover, .carousel-next-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+        
+        .carousel-prev-btn {
+            left: 10px;
+        }
+        
+        .carousel-next-btn {
+            right: 10px;
+        }
+        
+        .carrusel {
+            position: relative;
+        }
+    `;
+    document.head.appendChild(style);
+});
