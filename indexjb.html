@@ -29,21 +29,54 @@
     <!-- Header -->
     <header>
         <div class="header-top">
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <div class="logo logo-header">
                 <img src="./assets/img/logotest8.png" alt="Logo Test" class="logo-img">
             </div>
+            
+            <!-- Iconos de derecha responsivos -->
+            <div class="header-icons-right d-md-none">
+                <!-- Ícono de buscar -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <!-- Ícono de usuario -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <!-- Ícono de carrito -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61l1.38-7.39H6"></path></svg>
+            </div>
+
+            <!-- Buscador original Desktop -->
             <form class="search-bar" action="#" method="get">
                 <input type="text" placeholder="Fijate en JBimports" name="q">
                 <button type="submit" aria-label="Buscar">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 </button>
             </form>
+            <!-- Carrito original Desktop -->
             <div class="cart-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61l1.38-7.39H6"></path></svg>
                 <span class="cart-count">0</span>
             </div>
         </div>
-        <div class="header-nav">
+        
+        <!-- Menu Overlay -->
+        <div class="menu-overlay" id="menu-overlay"></div>
+
+        <div class="header-nav" id="main-nav">
+            <!-- Header for mobile menu -->
+            <div class="mobile-menu-header">
+                <div style="background: #fff; padding: 10px; border-radius: 4px; display: inline-flex; margin-right: auto;">
+                    <img src="./assets/img/logotest8.png" alt="Logo" style="height: 35px;">
+                </div>
+                <button class="close-menu" id="close-menu" aria-label="Cerrar Menú">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+
             <nav class="nav-primary">
                 <a href="#home">CELULARES</a>
                 <a href="#home">AURICULARES</a>
@@ -644,6 +677,16 @@
         <span style="color: #bbb; font-size: 12px; font-family: 'DM Sans', sans-serif; margin-top: 2px; letter-spacing: 0.5px;">Factura Electrónica AFIP</span>
     </div>
 
+    <!-- Botón de Carrito Fixed -->
+    <div class="cart-fixed" id="cartFixed">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61l1.38-7.39H6"></path>
+        </svg>
+        <span class="cart-count">3</span> <!-- Hardcodeado como pediste -->
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.min.js"></script>
     <script src="./assets/js/custom-extracted.js"></script>
     </body>
@@ -652,23 +695,94 @@
     document.addEventListener('DOMContentLoaded', function() {
         const hamburger = document.getElementById('hamburger-menu');
         const nav = document.getElementById('main-nav');
-        if (hamburger && nav) {
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                nav.classList.toggle('open');
-                // Accesibilidad
-                hamburger.setAttribute('aria-expanded', nav.classList.contains('open'));
+        const overlay = document.getElementById('menu-overlay');
+        const closeBtn = document.getElementById('close-menu');
+        const dropdownSubmenus = document.querySelectorAll('.dropdown-submenu .submenu-btn');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('open');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+            hamburger.setAttribute('aria-expanded', nav.classList.contains('open'));
+        }
+
+        if (hamburger && nav && overlay && closeBtn) {
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
             });
-            // Cerrar menú al hacer click fuera
-            document.addEventListener('click', function(e) {
-                if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
-                    hamburger.classList.remove('active');
-                    nav.classList.remove('open');
-                    hamburger.setAttribute('aria-expanded', 'false');
+
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            overlay.addEventListener('click', function() {
+                if (nav.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+
+            // Evitar que clicks dentro del nav lo cierren (excepto en links)
+            nav.addEventListener('click', function(e) {
+                if (!e.target.closest('a') && !e.target.closest('.submenu-btn') && !e.target.closest('.dropbtn') && !e.target.closest('#close-menu')) {
+                    e.stopPropagation();
                 }
             });
         }
+
+        // Accordion functionality for Mobile Submenus
+        if (window.innerWidth <= 768) {
+            const dropBtns = document.querySelectorAll('.dropbtn');
+            dropBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (window.innerWidth <= 768) {
+                        this.classList.toggle('active');
+                        const content = this.nextElementSibling;
+                        if (content.style.maxHeight) {
+                            content.style.maxHeight = null;
+                        } else {
+                            content.style.maxHeight = content.scrollHeight + "px";
+                        }
+                    }
+                });
+            });
+
+            dropdownSubmenus.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (window.innerWidth <= 768) {
+                        this.classList.toggle('active');
+                        const content = this.nextElementSibling;
+                        if (content.style.maxHeight) {
+                            content.style.maxHeight = null;
+                        } else {
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            // Adjust parent max-height if nested
+                            const parentContent = this.closest('.dropdown-content');
+                            if (parentContent) {
+                                parentContent.style.maxHeight = (parentContent.scrollHeight + content.scrollHeight) + "px";
+                            }
+                        }
+                    }
+                });
+            });
+        }
     });
+
+    // Ajustes para el slider responsivo
+    function checkSlider() {
+        const sliderOverlay = document.querySelectorAll('.slider-overlay');
+        if (window.innerWidth < 768) {
+            sliderOverlay.forEach(overlay => {
+                overlay.style.padding = '20px';
+            });
+        }
+    }
+    window.addEventListener('resize', checkSlider);
+    checkSlider();
     </script>
 </body>
 
